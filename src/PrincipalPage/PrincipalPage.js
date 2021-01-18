@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 //Components
 import Menu from '../Menu/Menu';
+import Experience from '../Commons/Experience';
 
 const PrincipalPage = () => {
 
@@ -43,20 +44,6 @@ const PrincipalPage = () => {
         });
     }, [contextComponentValue.paginationSelected]);
 
-    const colorPercentage = (percentage) => {
-        if (percentage <= 20) {
-            return "#e68020"
-        } else if (percentage <= 40) {
-            return "#e6b820"
-        } else if (percentage <= 60) {
-            return "#e3e620"
-        } else if (percentage <= 80) {
-            return "#b8e620"
-        } else {
-            return "#11af26"
-        }
-    }
-
     //icons fontawesome
     const flechaArriba = <FontAwesomeIcon icon={faSortUp} color="#454545" size="2x" />
     const flechaAbajo = <FontAwesomeIcon icon={faSortDown} color="#454545" size="2x" />
@@ -85,19 +72,7 @@ const PrincipalPage = () => {
                                     <p><span className="bold">Pokemon {pokemon.id}: </span>{pokemon.name}</p>
                                 </div>
                                 <div className="row justifyEnd">
-                                    <div className="experience">
-                                        <div className="circle">
-                                            <svg viewBox="0 0 36 36" className="circular-chart">
-                                                <path className="circle"
-                                                    strokeDasharray={`${pokemon.base_experience},100`}
-                                                    d="M18 2.0845
-                                                    a 15.9155 15.9155 0 0 1 0 31.831
-                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                                                    stroke={colorPercentage(pokemon.base_experience)} />
-                                            </svg>
-                                        </div>
-                                        <p className="experienceNumber">{pokemon.base_experience}</p>
-                                    </div>
+                                    <Experience experience={pokemon.base_experience}/>
                                 </div>
                                 <div className="justifyCenter">
                                     <img width="80%" src={pokemon.sprites.other.dream_world.front_default} alt="Card image cap" />

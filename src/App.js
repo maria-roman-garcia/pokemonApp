@@ -33,7 +33,7 @@ function App() {
       <ContextProvider value={{ contextInfo, setContextInfo }}>
         <Router basename={process.env.PUBLIC_URL}>
           <Route path='/' exact component={PrincipalPage} />
-          <Route path='/pokemonDetailed' exact component={PokemonDetailed} />
+          <Route path='/pokemonDetailed' component={PokemonDetailed} />
         </Router>
       </ContextProvider>
     </div>

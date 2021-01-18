@@ -9,6 +9,7 @@ import GetUrlParams from './GetUrlParams';
 import Ability from './Ability';
 import Move from './Move';
 import Species from './Species';
+import Experience from '../Commons/Experience';
 
 const PokemonDetailed = () => {
 
@@ -17,7 +18,6 @@ const PokemonDetailed = () => {
     const contextComponentValue = contextComponent.contextInfo;
 
     const [pokemonSelected, setPokemonSelected] = useState({
-        data: {},
         loading: true
     });
 
@@ -25,23 +25,32 @@ const PokemonDetailed = () => {
     const ourUrl = useLocation();
     useEffect(() => {
         const id = GetUrlParams(ourUrl);
+        const dataToReturn = contextComponentValue.pokemonResults.find(e => e.id === parseInt(id));
         setPokemonSelected({
-            data: contextComponentValue.pokemonResults.find(e => e.id === parseInt(id)),
-            loading: false
+            ...dataToReturn,
+            loading: false,
+            imgToLoad: [
+                dataToReturn.sprites.back_default,
+                dataToReturn.sprites.front_shiny,
+                dataToReturn.sprites.back_shiny,
+                dataToReturn.sprites.front_default
+            ]
         });
     }, []);
-
-    console.log(JSON.stringify(contextComponentValue.pokemonResults))
 
     return (
         <div className="PokemonDetailed maxScreenSize">
             {pokemonSelected.loading
                 ? <Spinner color="info" />
                 : <>
-                    <div className="row justifyCenter">
-                        <p>{pokemonSelected.name}</p>
+                    <div className="row textCenter">
+                        <p className="bold">{pokemonSelected.species.name.toUpperCase()}</p>
                     </div>
-                    <Species name={(pokemonSelected.species||{}).name} url={(pokemonSelected.species||{}).url} />
+                    <div className="row justifyCenter imgRow">
+                        {pokemonSelected.imgToLoad.map((e,indexImg) => <img key={indexImg} src={e} alt="imgPokemon" />)}
+                        <Experience experience={pokemonSelected.base_experience}/>
+                    </div>
+                    <Species name={pokemonSelected.species.name} url={pokemonSelected.species.url} />
                     <p>Abilities:</p>
                     {(pokemonSelected.abilities || []).map(e => <Ability name={e.ability.name} url={e.ability.url} />)}
                     <p>Moves:</p>
