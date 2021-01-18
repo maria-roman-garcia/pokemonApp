@@ -1,0 +1,68 @@
+.PrincipalPage {
+    & .cardContainer {
+        margin: 1rem 0;
+        height: inherit;
+
+        & .card {
+            height: 100%;
+            padding: 1rem;
+
+            & .ability {
+                background-color: rgb(152, 240, 140);
+                padding: 5px;
+                border-radius: 5px;
+                margin: 0 5px;
+            }
+
+            & .type {
+                background-color: khaki;
+                padding: 5px;
+                border-radius: 5px;
+                margin: 0 5px;
+            }
+
+            & .move {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(140, 240, 227);
+                padding: 5px;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            & .experience {
+                width: 5rem;
+                position: relative;
+                margin: 20px 0;
+
+                & .circle {
+                    & .circular-chart {
+                        & .circle {
+                            fill: rgba(231, 231, 253, 0.493);
+                            stroke-width: 3;
+                            stroke-linecap: round;
+                            animation: progress 2s ease-out forwards;
+                        }
+
+                        @keyframes progress {
+                            0% {
+                                stroke-dasharray: 0 100;
+                            }
+                        }
+                    }
+                }
+
+                & .experienceNumber {
+                    margin: 0;
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

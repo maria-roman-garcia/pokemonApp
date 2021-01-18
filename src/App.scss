@@ -1,0 +1,43 @@
+.App {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  //Max screen size
+  .maxScreenSize {
+    max-width: 1402px;
+    padding: 2rem;
+    @media screen and (max-width: "1402px") {
+      width: 100vw;
+    }
+  }
+
+  //Display elements
+  & .justifyCenter{
+    display: flex;
+    justify-content: center;
+  }
+  & .justifyEnd{
+    display: flex;
+    justify-content: flex-end;
+  }
+  & .justifySpaceBeteween{
+    display: flex;
+    justify-content: space-between;
+  }
+  & .alignCenter{
+    display: flex;
+    align-items: center;
+  }
+
+  //Texts
+  & .bold{
+    font-weight: bold;
+  }
+
+  //Others
+  & .pointer{
+    cursor: pointer;
+  }
+}
