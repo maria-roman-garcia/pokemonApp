@@ -31,6 +31,8 @@ const PokemonDetailed = () => {
         });
     }, []);
 
+    console.log(JSON.stringify(contextComponentValue.pokemonResults))
+
     return (
         <div className="PokemonDetailed maxScreenSize">
             {pokemonSelected.loading
