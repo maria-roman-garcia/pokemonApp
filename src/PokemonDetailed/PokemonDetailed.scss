@@ -1,9 +1,39 @@
 .PokemonDetailed {
-    & .imgRow {
 
-        & img {
-            height: fit-content;
-            width: auto;
+    & .pokemonCard {
+
+        background-color: white;
+        max-width: 800px;
+        min-width: 600px;
+        padding: 1rem;
+        border-radius: 5px;
+        @media screen and(max-width: "600px"){
+            min-width: 300px;
+        }
+
+        & .title {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+
+            & p {
+                margin: 0!important;
+            }
+        }
+
+        & .imgRow {
+            & img {
+                height: 20vh;
+                width: auto;
+            }
+        }
+
+        & .menu{
+            cursor: pointer;
+            & .menuActive{
+                border-bottom: 4px solid rgb(255, 0, 85);
+            }
         }
     }
+
 }

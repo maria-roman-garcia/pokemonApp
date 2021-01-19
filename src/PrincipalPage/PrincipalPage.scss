@@ -6,6 +6,12 @@
         & .card {
             height: 100%;
             padding: 1rem;
+            background: linear-gradient(to bottom, lightblue, white);
+
+            & .pokemonNumber{
+                transform: rotate(28deg);
+                font-size: x-large;
+            }
 
             & .ability {
                 background-color: rgb(152, 240, 140);

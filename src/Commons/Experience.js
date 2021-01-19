@@ -29,7 +29,7 @@ const Experience = (props) => {
                         stroke={colorPercentage(props.experience)} />
                 </svg>
             </div>
-            <p className="experienceNumber">{props.experience}</p>
+            <p className="experienceNumber normalHandWrite bold">{props.experience}</p>
         </div>
     )
 
